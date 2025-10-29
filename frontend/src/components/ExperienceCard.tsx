@@ -96,7 +96,8 @@ export default function ExperienceCard({
           </div>
 
           <Link
-            href={`/experience/${id}`}
+            href={`/experience/${id}`}>
+              <button
             className="
               bg-[#FFD643]
               rounded-[4px]
@@ -110,6 +111,7 @@ export default function ExperienceCard({
             "
           >
             View Details
+          </button>
           </Link>
         </div>
       </div>
