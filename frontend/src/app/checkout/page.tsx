@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-
+import Link from "next/link";
 export default function CheckoutPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", promo: "" });
