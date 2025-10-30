@@ -101,7 +101,7 @@ export default function ExperienceDetails() {
           <div className="flex-1 flex flex-col gap-8">
             {/* Image */}
             <div className="w-full h-[380px] rounded-[12px] overflow-hidden max-md:h-[250px]">
-              <Image
+              <img
                 src={experience?.image || "/placeholder.jpg"}
                 alt={experience?.title}
                 width={800}

@@ -1,11 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ExperienceCard from "@/components/ExperienceCard";
 import Navbar from "@/components/Navbar";
 import { Experience } from "@/types";
 
-export default function SearchResultPage() {
+function SearchResultsContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
   const [results, setResults] = useState<Experience[]>([]);
@@ -36,27 +37,35 @@ export default function SearchResultPage() {
   }, [query]);
 
   return (
+    <main className="px-6 py-8">
+      <h1 className="text-2xl font-semibold mb-6 text-[#161616]">
+        Search results for “{query}”
+      </h1>
+
+      {loading ? (
+        <p className="text-gray-500">Loading results...</p>
+      ) : error ? (
+        <p className="text-red-500">{error}</p>
+      ) : results.length === 0 ? (
+        <p className="text-gray-500">No experiences found.</p>
+      ) : (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {results.map((exp) => (
+            <ExperienceCard key={exp.id} {...exp} />
+          ))}
+        </div>
+      )}
+    </main>
+  );
+}
+
+export default function SearchResultPage() {
+  return (
     <div>
       <Navbar />
-      <main className="px-6 py-8">
-        <h1 className="text-2xl font-semibold mb-6">
-          Search results for “{query}”
-        </h1>
-
-        {loading ? (
-          <p className="text-gray-500">Loading results...</p>
-        ) : error ? (
-          <p className="text-red-500">{error}</p>
-        ) : results.length === 0 ? (
-          <p className="text-gray-500">No experiences found.</p>
-        ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {results.map((exp) => (
-              <ExperienceCard key={exp.id} {...exp} />
-            ))}
-          </div>
-        )}
-      </main>
+      <Suspense fallback={<div className="p-6 text-gray-500">Loading...</div>}>
+        <SearchResultsContent />
+      </Suspense>
     </div>
   );
 }

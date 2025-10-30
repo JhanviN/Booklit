@@ -152,7 +152,7 @@ export default function CheckoutPage() {
               ))}
             </div>
 
-            <hr className="border-[#D8D8D8]" />
+            
 
             {/* Price Details */}
             <div className="flex flex-col gap-[8px]">
