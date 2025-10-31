@@ -11,8 +11,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://booklit-neon.vercel.app", // ✅ your deployed frontend
-      "http://localhost:3000" // ✅ for local testing
+      "https://booklit-neon.vercel.app",
+      "http://localhost:3000"
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
