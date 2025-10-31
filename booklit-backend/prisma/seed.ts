@@ -2,10 +2,16 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.promo.deleteMany();
-  await prisma.experience.deleteMany();
+  console.log("🌱 Seeding database...");
+
+  // 🔹 Delete in correct order (respect foreign keys)
   await prisma.booking.deleteMany();
-  await prisma.experience.createMany({
+  await prisma.slot.deleteMany();
+  await prisma.experience.deleteMany();
+  await prisma.promo.deleteMany();
+
+  // 🔹 Create experiences
+  const experiences = await prisma.experience.createMany({
     data: [
       {
         title: "Sunset Kayaking in Bali",
@@ -24,35 +30,50 @@ async function main() {
     ],
   });
 
+  // 🔹 Fetch created experiences (for dynamic IDs)
+  const allExperiences = await prisma.experience.findMany();
+
+  // 🔹 Create slots linked to those experiences
   await prisma.slot.createMany({
     data: [
       {
         date: new Date("2025-11-05"),
         time: "08:00 AM",
         capacity: 10,
-        experienceId: 1,
+        experienceId: allExperiences[0].id,
       },
       {
         date: new Date("2025-11-06"),
         time: "04:00 PM",
         capacity: 8,
-        experienceId: 1,
+        experienceId: allExperiences[0].id,
       },
       {
         date: new Date("2025-11-05"),
         time: "06:00 AM",
         capacity: 12,
-        experienceId: 2,
+        experienceId: allExperiences[1].id,
       },
     ],
   });
 
+  // 🔹 Create promo codes
   await prisma.promo.createMany({
     data: [
       { code: "SAVE10", discountType: "PERCENT", value: 10, expiry: new Date("2026-01-01") },
       { code: "FLAT100", discountType: "FLAT", value: 100, expiry: new Date("2026-01-01") },
     ],
+    skipDuplicates: true, // ✅ prevents unique constraint error
   });
+
+  console.log("✅ Seeding complete!");
 }
 
-main().finally(() => prisma.$disconnect());
+main()
+  .catch((e) => {
+    console.error("❌ Seeding failed:", e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
