@@ -37,22 +37,22 @@ async function main() {
         image:
           "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80",
       },
-      {
-        title: "Skiing in the Alps",
-        location: "Zermatt, Switzerland",
-        description: "Hit the slopes in one of the world’s best ski resorts.",
-        price: 400,
-        image:
-          "https://images.unsplash.com/photo-1610899216365-3d263f4e3a74?auto=format&fit=crop&w=1200&q=80",
-      },
-      {
-        title: "Desert Safari",
-        location: "Dubai, UAE",
-        description: "Ride across the dunes and enjoy a Bedouin-style evening.",
-        price: 180,
-        image:
-          "https://images.unsplash.com/photo-1601309323907-18b6fe4cde51?auto=format&fit=crop&w=1200&q=80",
-      },
+      // {
+      //   title: "Skiing in the Alps",
+      //   location: "Zermatt, Switzerland",
+      //   description: "Hit the slopes in one of the world’s best ski resorts.",
+      //   price: 400,
+      //   image:
+      //     "https://images.unsplash.com/photo-1610899216365-3d263f4e3a74?auto=format&fit=crop&w=1200&q=80",
+      // },
+      // {
+      //   title: "Desert Safari",
+      //   location: "Dubai, UAE",
+      //   description: "Ride across the dunes and enjoy a Bedouin-style evening.",
+      //   price: 180,
+      //   image:
+      //     "https://images.unsplash.com/photo-1601309323907-18b6fe4cde51?auto=format&fit=crop&w=1200&q=80",
+      // },
       {
         title: "Northern Lights Tour",
         location: "Reykjavik, Iceland",
@@ -69,22 +69,22 @@ async function main() {
         image:
           "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1200&q=80",
       },
-      {
-        title: "Paragliding in Interlaken",
-        location: "Interlaken, Switzerland",
-        description: "Fly high above the Swiss Alps with stunning views.",
-        price: 270,
-        image:
-          "https://images.unsplash.com/photo-1509817316-7e58d09794c1?auto=format&fit=crop&w=1200&q=80",
-      },
-      {
-        title: "Trekking in the Himalayas",
-        location: "Nepal",
-        description: "Embark on a breathtaking trek to Annapurna Base Camp.",
-        price: 320,
-        image:
-          "https://images.unsplash.com/photo-1529516544816-1a4a1b7f1b3e?auto=format&fit=crop&w=1200&q=80",
-      },
+      // {
+      //   title: "Paragliding in Interlaken",
+      //   location: "Interlaken, Switzerland",
+      //   description: "Fly high above the Swiss Alps with stunning views.",
+      //   price: 270,
+      //   image:
+      //     "https://images.unsplash.com/photo-1509817316-7e58d09794c1?auto=format&fit=crop&w=1200&q=80",
+      // },
+      // {
+      //   title: "Trekking in the Himalayas",
+      //   location: "Nepal",
+      //   description: "Embark on a breathtaking trek to Annapurna Base Camp.",
+      //   price: 320,
+      //   image:
+      //     "https://images.unsplash.com/photo-1529516544816-1a4a1b7f1b3e?auto=format&fit=crop&w=1200&q=80",
+      // },
       {
         title: "Cultural Walk in Kyoto",
         location: "Kyoto, Japan",
