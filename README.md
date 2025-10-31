@@ -29,7 +29,7 @@ It includes features like experience browsing, booking with time slots, promo co
 
 ## ⚙️ Setup Instructions
 
-Follow these steps to set up **Booklit** locally on your system 👇
+Follow these steps to set up **Booklit** locally on your system 
 
 ### 1. Clone the Repository
 
