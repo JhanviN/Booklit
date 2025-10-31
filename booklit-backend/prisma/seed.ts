@@ -2,6 +2,9 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.promo.deleteMany();
+  await prisma.experience.deleteMany();
+  await prisma.booking.deleteMany();
   await prisma.experience.createMany({
     data: [
       {
